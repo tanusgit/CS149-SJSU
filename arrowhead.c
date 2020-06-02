@@ -1,4 +1,29 @@
 #include <stdio.h>
+
+int main(void) {
+    // 0 1 is input for printing arrow head
+   int baseInt;
+   int headInt;
+   scanf("%d", &baseInt);
+   scanf("%d", &headInt);
+   
+    printf("    %d\n", headInt);
+    printf("    %d%d\n", headInt, headInt);
+    printf("%d%d%d%d%d%d%d\n", baseInt, baseInt, baseInt,baseInt,headInt, headInt, headInt);
+    printf("%d%d%d%d%d%d%d%d\n", baseInt, baseInt,
+    baseInt, baseInt, headInt, headInt, headInt, headInt);
+    printf("%d%d%d%d%d%d%d\n", baseInt, baseInt, baseInt, baseInt, headInt, headInt, headInt);
+    printf("    %d%d\n", headInt, headInt);
+    printf("    %d\n", headInt);
+    
+   
+   /* Type your code here. */
+
+   return 0;
+}
+
+
+/*#include <stdio.h>
 int main(void) {
     //input is 0 1. 0 is body, 1 is head
     int baseInt = 0;
@@ -28,4 +53,4 @@ int main(void) {
     }
     
     return 0;
-}
+}*/
