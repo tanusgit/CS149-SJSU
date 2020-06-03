@@ -1,21 +1,21 @@
 1.3
 
 #include <stdio.h>
-int main(void) {
-//printing Hello World!
-printf("Hello World!\n");
-return 0;
+int main(void)
+{   //printing Hello World!
+    printf("Hello World!\n");
+    return 0;
 }
-
 1.4
 
 #include <stdio.h>
-int main(void) {
-//printing NO PARKING sign
-printf(" NO PARKING\n");
-printf("2:00 - 6:00 a.m.\n");
-return 0;
+int main(void)
+{   //printing NO PARKING sign
+    printf("  NO PARKING\n");
+    printf("2:00 - 6:00 a.m.\n");
+    return 0;
 }
+
 
 1.5
 #include <stdio.h>
@@ -36,47 +36,46 @@ int main(void) {
     printf("%d%d%d%d%d%d%d\n", baseInt, baseInt, baseInt, baseInt, headInt, headInt, headInt);
     printf("    %d%d\n", headInt, headInt);
     printf("    %d\n", headInt);
-    
-
    return 0;
 }
 
 
 1.6
 #include <stdio.h>
-int main(void) {
-//Printing Hello world!
-printf("Hello world!\n");
-//Printing How are you?
-printf("How are you?\n");
-//Printing (I'm fine).
-printf(" (I'm fine).\n");
-return 0;
+int main(void)
+{
+    //Printing Hello world!
+    printf("Hello world!\n");
+    //Printing How are you?
+    printf("How are you?\n");
+    //Printing (I'm fine).
+    printf(" (I'm fine).\n");
+    return 0;
 }
-
 1.7
+
 #include <stdio.h>
 
 int main(void)
 {
-int userNum;
-int num;
+    int userNum;
+    int num;
 
-printf("Enter integer:\n");
-//taking user input
-scanf("%d", &userNum);
+    printf("Enter integer:\n");
+    //taking user input
+    scanf("%d", &userNum);
 
-printf("You entered: %d\n", userNum);
+    printf("You entered: %d\n", userNum);
 
-printf("%d squared is %d\n", userNum, userNum * userNum);
-printf("And %d cubed is %d!!\n", userNum, userNum * userNum * userNum);
-printf("Enter another integer:\n");
-//taking user input
-scanf("%d", &num);
-printf("%d + %d is %d\n", userNum, num, userNum + num);
-printf("%d * %d is %d\n", userNum, num, userNum * num);
+    printf("%d squared is %d\n", userNum, userNum * userNum);
+    printf("And %d cubed is %d!!\n", userNum, userNum * userNum * userNum);
+    printf("Enter another integer:\n");
+    //taking user input
+    scanf("%d", &num);
+    printf("%d + %d is %d\n", userNum, num, userNum + num);
+    printf("%d * %d is %d\n", userNum, num, userNum * num);
 
-return 0;
+    return 0;
 }
 
 1.8
