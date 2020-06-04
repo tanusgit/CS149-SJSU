@@ -53,3 +53,16 @@ int main(void) {
 
    return 0;
 }
+
+2.10
+#include <stdio.h>
+
+int main(void) {
+   char userName[50];
+   
+   scanf("%s", userName);
+   printf("Hello %s, and welcome to CS Online!\n", userName);
+  
+
+   return 0;
+}
