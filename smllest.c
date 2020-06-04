@@ -9,37 +9,28 @@ int main(void)
     scanf("%d", &a);
     scanf("%d", &b);
     scanf("%d", &c);
-    if (a == b)
-    {
-        if (b == c)
-        {
-            printf("%d\n", a);
-        }
-    }
-    else if (a < b)
+
+    if (a < b)
     {
         if (a < c)
         {
             printf("%d\n", a);
         }
-    }
-    else if (b < a)
-    {
-        if (b < c)
-        {
-            printf("%d\n", b);
-        }
-    }
-    else if (c < a)
-    {
-        if (c < b)
+        else
         {
             printf("%d\n", c);
         }
     }
     else
     {
-        printf("%d\n", 0);
+        if (b < c)
+        {
+            printf("%d\n", b);
+        }
+        else
+        {
+            printf("%d\n", c);
+        }
     }
 
     return 0;
