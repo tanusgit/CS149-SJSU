@@ -1,1 +1,4 @@
 #include <stdio.h> is preprocessor command
+zip -r proj1.zip avg.c ----for zipping a file
+unzip proj1.zip----for unzipping proj1.zip file
+diff avg.c ../avg.c -----for checking if the files are exactly same
