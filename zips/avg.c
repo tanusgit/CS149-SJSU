@@ -7,8 +7,7 @@ int main(int argc, char *argv[])
 {
     if (argc != 2)
     {
-        printf("error: please enter file with numbers.\n");
-        return 1;
+        return 0;
     }
     char *filename = argv[1];
     int value = average(filename);
@@ -25,7 +24,7 @@ int average(char *filename)
     FILE *fp = fopen(filename, "r");
     if (!fp)
     {
-        printf("file not found.\n");
+        printf("avg: cannot open file.\n");
         return 1;
     }
     //reading all the numbers till end of file
@@ -35,6 +34,11 @@ int average(char *filename)
         //adding all the numbers
         sum = sum + x;
         count++;
+    }
+    if (count == 0)
+    {
+        fclose(fp);
+        return 0;
     }
     //taking the average of the numbers
     double avg = (sum / count);
