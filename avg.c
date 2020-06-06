@@ -4,8 +4,7 @@
 void average();
 
 int main(int argc, char* argv[])
-{
-    printf("%s, %s, %d\n", argv[0], argv[1], argc);
+{   
     char* filename = argv[1];
     average(filename);
 }
@@ -20,7 +19,7 @@ void average(char* filename)
     //reading all the numbers and checking if reached end of file
     while (fscanf(fp, "%s", buffer) != EOF)
     {
-        printf("numbers are %s ", buffer);
+        
         //converting string to int
         float x = atof(buffer);
         //adding all the numbers
@@ -30,7 +29,7 @@ void average(char* filename)
     //taking the average of the numbers
     double avg = (sum / count);
     //displaying the average of the numbers
-    printf("average is %lf", avg);
+    printf("%lf", avg);
 
     fclose(fp);
 }
