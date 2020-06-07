@@ -36,10 +36,51 @@ void printNum(int num)
     //as if (num >= 100 && num <= 999)
     {
         int num2 = num % 100;
+        if (num2 % 2 == 0)
+        {
+            printf("I-%d is auxiliary, serving I-%d, going east/west.\n", num, num2);
+        }
+        else
+            printf("I-%d is auxiliary, serving I-%d, going north/south.\n", num, num2);
+    }
+}
+
+/*
+#include <stdio.h>
+
+int main(void) {
+   int num;
+   
+   scanf("%d", &num); 
+   
+ if (num < 1 || num > 999)
+    {
+        printf("%d is not a valid interstate highway number.\n", num);
+    }
+    else if (num >= 1 && num <= 99)
+    {
+        if (num % 2 == 0)
+        {
+            printf("I-%d is primary, going east/west.\n", num);
+        }
+        else
+        {
+            printf("I-%d is primary, going north/south.\n", num);
+        }
+    }
+    else // if is not needed here as we have already covered the half
+    //valid inputs in the above if statement
+    //as if (num >= 100 && num <= 999)
+    {
+        int num2 = num % 100;
         if(num2 % 2 == 0){
             printf("I-%d is auxiliary, serving I-%d, going east/west.\n", num, num2);
         }
         else
         printf("I-%d is auxiliary, serving I-%d, going north/south.\n", num, num2);
     }
+
+
+   return 0;
 }
+*/
