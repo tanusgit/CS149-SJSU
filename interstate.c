@@ -2,7 +2,7 @@
 void printNum(int num);
 int main()
 {
-    printNum(919);
+    printNum(405);
     return 0;
 }
 //Odd numbers (like the 5 or 95) go north/south,
@@ -13,6 +13,7 @@ int main()
 //0
 //0 is not a valid interstate highway number.
 //valid 1-999
+//405 == I-405 is auxiliary, serving I-5, going north/south.
 void printNum(int num)
 {
     if (num < 1 || num > 999)
@@ -35,6 +36,10 @@ void printNum(int num)
     //as if (num >= 100 && num <= 999)
     {
         int num2 = num % 100;
-        printf("I-%d is auxiliary, serving I-%d, going east/west.\n", num, num2);
+        if(num2 % 2 == 0){
+            printf("I-%d is auxiliary, serving I-%d, going east/west.\n", num, num2);
+        }
+        else
+        printf("I-%d is auxiliary, serving I-%d, going north/south.\n", num, num2);
     }
 }
