@@ -13,35 +13,30 @@ int main(void)
     char Month[50];
     int Day;
 
-    scanf("%s", &Month);
+    scanf("%s", Month);
+    //&Day is the address of day
     scanf("%d", &Day);
+    printf("%s %d\n", Month, Day);
     //strcmp is used to compare two strings
     // if (strcmp(Month, "March") == 0)
-    if (Day < 1 && Day > 31)
+    if (Day < 1 || Day > 31)
     {
         printf("Invalid");
     }
-    else if ((strcmp(Month, "March") != 0))
-    {
-        printf("Invalid");
-    }
-    else if ((strcmp(Month, "June") != 0))
-    {
-        printf("Invalid");
-    }
-    else if ((strcmp(Month, "September") != 0))
-    {
-        printf("Invalid");
-    }
-    else if ((strcmp(Month, "December") != 0))
+    else if ((strcmp(Month, "December") != 0) && (strcmp(Month, "September") != 0) &&
+             (strcmp(Month, "June") != 0) && (strcmp(Month, "March") != 0))
     {
         printf("Invalid");
     }
     else if (strcmp(Month, "March") == 0)
     {
-        if (Day > 20)
+        if (Day > 19)
         {
             printf("Spring");
+        }
+        else
+        {
+            printf("winter");
         }
     }
     else if (strcmp(Month, "June") == 0)
@@ -50,45 +45,31 @@ int main(void)
         {
             printf("Spring");
         }
-    }
-    else if (strcmp(Month, "June") == 0)
-    {
-        if (Day > 20)
+        else
         {
             printf("Summer");
         }
     }
+
     else if (strcmp(Month, "September") == 0)
     {
         if (Day < 22)
         {
             printf("Summer");
         }
-    }
-    else if (strcmp(Month, "September") == 0)
-    {
-        if (Day > 21)
+        else
         {
             printf("Autumn");
         }
     }
+
     else if (strcmp(Month, "December") == 0)
     {
         if (Day < 21)
         {
             printf("Autumn");
         }
-    }
-    else if (strcmp(Month, "Deceember") == 0)
-    {
-        if (Day > 20)
-        {
-            printf("Winter");
-        }
-    }
-    else if (strcmp(Month, "March") == 0)
-    {
-        if (Day > 20)
+        else
         {
             printf("Winter");
         }
