@@ -1,3 +1,11 @@
+/*
+Write a program that reads a list of integers, and outputs those
+ integers in reverse. The input begins with an integer indicating 
+ the number of integers that follow. For coding simplicity, follow 
+ each output integer by a space, including the last one.
+ Assume that the list will always contain less than 20 integers.
+*/
+
 //input: 5 2 4 6 8 10
 //output: 10 8 6 4 2
 #include <stdio.h>

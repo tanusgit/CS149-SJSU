@@ -1,3 +1,13 @@
+/*
+Given a sorted list of integers, output the middle integer. Assume the number of integers is always odd.
+(where a negative indicates the end).
+The maximum number of list values for any test case should not exceed 9. If exceeded, output "Too many inputs".
+
+Hint: First read the data into an array. Then, based on the array's size, find the middle item. 
+Ex: If the input is:2 3 4 8 11 -1
+output = 4
+*/
+
 #include <stdio.h>
 //input 2 3 4 8 11 -1
 //output 4
