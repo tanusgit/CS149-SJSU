@@ -1,24 +1,15 @@
 #include <stdio.h>
-void div(int n);
-int main(void)
-{
+//6 = 011
+void bin(int n) 
+{ 
+     printf("%d", n % 2); 
+        if (n > 1) 
+        bin(n/2);    
+}  
+int main(void) 
+{ 
     int num;
-    //&num is the adress of the num
     scanf("%d", &num);
-    div(7);
-    return 0;
-}
-
-void div(int n)
-{
-    while(n > 1){
-        div(n);
-         int m = n / 2;
-        printf("%d", m);
-       
-    }
-    
-        
-    
-    
-}
+    bin(num);
+    printf("\n");
+} 

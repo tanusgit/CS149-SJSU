@@ -5,3 +5,4 @@ diff avg.c ../avg.c -----for checking if the files are exactly same.
 echo $?-----for checking the exit status of the previous program
 to get last 2 digit of a number take number % 100
 to get last digit of a number take number % 10
+while(true) in c is while(1)

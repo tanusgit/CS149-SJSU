@@ -1,0 +1,69 @@
+4.14
+#include <stdio.h>
+void bin(int n) 
+{ 
+     printf("%d", n % 2); 
+        if (n > 1) 
+        //calling bin() recursively if n > 1
+        bin(n/2);    
+}  
+int main(void) 
+{ 
+    int num;
+    //taking user input
+    scanf("%d", &num);
+    bin(num);
+    printf("\n");
+} 
+4.16
+#include <stdio.h>
+//15 20 0 5 -1
+//10 20
+int main(void)
+{
+    int sum = 0;
+    int num;
+    int avg;
+    int max = 0;
+    int count = 0;
+
+    while (1)
+    {   //taking user input
+        scanf("%d", &num);
+        if (num < 0)
+            break;
+        sum = sum + num;
+        count++;
+        if (num > max)
+        {
+            max = num;
+        }
+    }
+    //calculating average
+    avg = sum / count;
+    //printing average and max
+    printf("%d %d\n", avg, max);
+    return 0;
+}
+5.16
+//input: 5 2 4 6 8 10
+//output: 10 8 6 4 2
+#include <stdio.h>
+int main(void)
+{
+    int limit;
+    int num = 20;
+    int values[num];
+    scanf("%d", &limit);
+
+    for (int i = 0; i < limit; i++)
+    {
+        scanf("%d", &values[i]);
+    }
+    for (int i = limit - 1; i >= 0; i--)
+    {
+        printf("%d ", values[i]);
+    }
+    printf("\n");
+    return 0;
+}
