@@ -33,20 +33,20 @@ int main()
     {
         if (values[k] < small1)
         {
-          
+          //checking the smallest value
             small1 = values[k];
         }
     }
+    small2 = values[2];
     for (int k = 0; k <= start; k++)
-    {
-        if (values[k] < small1)
-        {
-          
-            small1 = values[k];
+    {   
+        if (values[k] > small1 && values[k] < small2)
+        {   //second small number
+            small2 = values[k];
         }
     }
-    
-    printf("%d", small1);
+    //printing the 2 smallest numbers in ascending order as specified in the assignment
+    printf("%d %d", small1, small2);
     printf("\n");
     return 0;
 }
