@@ -13,31 +13,51 @@ drizzle
 */
 #include <stdio.h>
 #include <string.h>
-int Contains(char* a, int size, char c){
-
-}
-int main(void) {
-   //20 is the number of the strings in the array
-   //10 is the length of the string
-   int numofString = 20;
-   int stringLength = 10;
-   char str[numofString][stringLength];
-   int i = 0;
-   int len;
-   scanf("%d", &len);
-   while(1){
-       scanf("%s", str[i]); 
-       if(i > len+1){
-           break;
-       }
-       i++;
-       
-   }
-    for(int k = 0; k < i; k++){
-      if(str[k].Contains('z') == 1){
-          printf("%s ", str[k]);
-      }
-        
+int Contains(char a[], char c)
+{
+  for (int i = 0; i < strlen(a); i++)
+  {
+    if (a[i] == c){
+      return 0;
     }
-   return 0;
+  }
+  return 1;
+}
+int main(void)
+{
+  //20 is the number of the strings in the array
+  //10 is the length of the string
+  int numofString = 20;
+  int stringLength = 10;
+  char str[numofString][stringLength];
+  for(int i = 0; i < numofString; ++i) {
+    for (int j = 0; j < stringLength; ++j) {
+      str[i][j] = '\0';
+    }
+  }
+  int i = 0;
+  int len = 0;
+  char c;
+  scanf("%d", &len);
+  while (1)
+  {
+    scanf("%s", str[i]);
+    if (i >= len)
+    {
+      break;
+    }
+    i++;
+  }
+  //getting the first character(0) of the last string
+  c = str[i][0];
+  //printf("character %c\n", c);
+  for (int k = 0; k < i; k++)
+  { //printf("%s\n", str[k]);
+    if (Contains(str[k], c) == 0)
+    {
+     
+      printf("%s\n", str[k]);
+    }
+  }
+  return 0;
 }
