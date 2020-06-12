@@ -21,19 +21,18 @@ int main(void) {
    int stringLength = 10;
    char str[numofString][stringLength];
    int i = 0;
-   int j = 0;
    while(1){
-       scanf(str[i], "%s"); 
-       if(i > 20){
-           break;
-       }
-       else if(j > 10){
+       scanf("%s", str[i]); 
+       if(i > 4){
            break;
        }
        i++;
-       j++;
+       
    }
-    for(int k = 0; i < )
+    for(int k = 0; k < i; k++){
+      if(str[k].contains())
+        printf("%s ", str[k]);
+    }
                          
 
 

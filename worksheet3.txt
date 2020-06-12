@@ -161,3 +161,53 @@ int main()
     printf("\n");
     return 0;
 }
+
+5.23
+#include <stdio.h>
+#include <limits.h>
+int main()
+{
+  const int num = 20;
+  // int values[6] = {5, 1, 1, 91, 23, 7};
+  int values[num];
+  int i = 0;
+  int start = 5;
+  int small1 = 0;
+  int small2 = INT_MAX;
+  while (1)
+  { //taking user input
+    scanf("%d", &values[i]);
+    //the first value
+    start = values[0];
+    if (i >= start)
+    {
+      break;
+    }
+    i++;
+  }
+
+  small1 = values[1];
+  for (int k = 1; k <= start; k++)
+  {
+    if (values[k] < small1)
+    {
+      //checking the smallest value
+      small1 = values[k];
+    }
+  }
+
+  for (int k = 1; k <= start; k++)
+  {
+    if (values[k] != small1)
+    {
+      if (values[k] <= small2)
+      {
+        small2 = values[k];
+      }
+    }
+  }
+  //printing the 2 smallest numbers in ascending order as specified in the assignment
+  printf("%d %d", small1, small2);
+  printf("\n");
+  return 0;
+}
