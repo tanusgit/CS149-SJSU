@@ -1,0 +1,20 @@
+6.18
+#include <stdio.h>
+
+double MilesToLaps(double userMiles)
+{
+  double lap;
+  lap = userMiles / .25;
+  return lap;
+}
+
+int main(void)
+{
+  double mile = 0.0;
+  scanf("%lf", &mile);
+  double lap = MilesToLaps(mile);
+  printf("%0.2lf\n", lap);
+  return 0;
+}
+
+6.28

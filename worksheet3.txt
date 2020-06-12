@@ -125,6 +125,53 @@ int main()
     printf("\n");
     return 0;
 }
+5.21
+#include <stdio.h>
+#include <string.h>
+int Contains(char a[], char c)
+{
+  for (int i = 0; i < strlen(a); i++)
+  {
+    if (a[i] == c){
+      return 0;
+    }
+  }
+  return 1;
+}
+int main(void)
+{
+  int numofString = 20;
+  int stringLength = 10;
+  char str[numofString][stringLength];
+  for(int i = 0; i < numofString; ++i) {
+    for (int j = 0; j < stringLength; ++j) {
+      str[i][j] = '\0';
+    }
+  }
+  int i = 0;
+  int len = 0;
+  char c;
+  scanf("%d", &len);
+  while (1)
+  {
+    scanf("%s", str[i]);
+    if (i >= len)
+    {
+      break;
+    }
+    i++;
+  }
+  //getting the first character(0) of the last string
+  c = str[i][0];
+  for (int k = 0; k < i; k++)
+  {
+    if (Contains(str[k], c) == 0)
+    {
+      printf("%s\n", str[k]);
+    }
+  }
+  return 0;
+}
 5.22
 #include <stdio.h>   
 int main()
