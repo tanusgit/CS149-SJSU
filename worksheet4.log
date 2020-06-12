@@ -1,0 +1,735 @@
+    1  date
+    2  pwd
+    3  cd ~
+    4  cd Desktop/
+    5  ls -latr
+    6  mkdir ws2
+    7  cd ws2
+    8  ls -latr
+    9  echo $?
+   10  map ps 
+   11  man ps
+   12  ps aux
+   13  ps aux | grep code
+   14  ps aux | grep firefox
+   15  top
+   16  mv ~/.bash_history .bash_history.old.1
+   17  cd ..
+   18  rm rf ws2
+   19  rm ws2
+   20  rm -rf ws2
+   21  man rm
+   22  rm foo
+   23  echo $?
+   24  rm -f foo
+   25  echo $?
+   26  date
+   27  pwd
+   28  cd ~
+   29  cd Desktop/
+   30  ls -latr
+   31  mkdir ws2
+   32  cd ws2
+   33  ls -latr
+   34  echo $?
+   35  man ps
+   36  ps aux
+   37  top
+   38  history > worksheet2.log
+   39  head worksheet2.log 
+   40  tail worksheet2.log 
+   41  cat worksheet2.log 
+   42  git status
+   43  git add mortgage.c worksheet2.txt 
+   44  git commit -am "mortgage and worksheet2 added"
+   45  git push origin master
+   46  git status
+   47  git add stringPring.c 
+   48  git commit -am "mortgage and worksheet2 added"
+   49  git push origin master
+   50  gcc smllest.c 
+   51  ./a.out 
+   52  1
+   53  ./a.out 
+   54  gcc smllest.c 
+   55  ./a.out 
+   56  gcc smllest.c 
+   57  ./a.out 
+   58  gcc smllest.c 
+   59  ./a.out 
+   60  gcc smllest.c 
+   61  ./a.out 
+   62  gcc smllest.c 
+   63  ./a.out 
+   64  gcc smllest.c 
+   65  ./a.out 
+   66  gcc smllest.c 
+   67  ./a.out 
+   68  gcc smllest.c 
+   69  ./a.out 
+   70  gcc smllest.c 
+   71  4
+   72  gcc smllest.c 
+   73  ./a.out 
+   74  gcc smllest.c 
+   75  ./a.out 
+   76  gcc smllest.c 
+   77  ./a.out 
+   78  gcc smllest.c 
+   79  ./a.out 
+   80  gcc smllest.c 
+   81  ./a.out 
+   82  gcc smllest.c 
+   83  ./a.out 
+   84  gcc smllest.c 
+   85  ./a.out 
+   86  git status
+   87  git add smllest.c 
+   88  git commit -am "small"
+   89  git push origin master
+   90  git status
+   91  gcc smllest.c 
+   92  ./a.out 
+   93  gcc smllest.c 
+   94  ./a.out 
+   95  gcc smllest.c 
+   96  ./a.out 
+   97  gcc smllest.c 
+   98  ./a.out 
+   99  gcc smllest.c 
+  100  1
+  101  gcc smllest.c 
+  102  ./a.out 
+  103  gcc smllest.c && ./a.out 
+  104  echo $?
+  105  gcc smllest.c && ./a.out 
+  106  echo $?
+  107  git status
+  108  git add smllest.c worksheet2.txt 
+  109  git commit -am "updated small num"
+  110  gitpush origin master
+  111  git push origin master
+  112  gcc avg.c 
+  113  ./a.out 
+  114  gcc avg.c 
+  115  ./a.out 
+  116  gcc avg.c 
+  117  ./a.out 
+  118  gcc avg.c 
+  119  ./a.out 
+  120  gcc avg.c 
+  121  ./a.out 
+  122  gcc avg.c 
+  123  ./a.out 
+  124  gcc avg.c 
+  125  ./a.out 
+  126  gcc avg.c 
+  127  ./a.out 
+  128  gcc avg.c 
+  129  ./a.out 
+  130  gcc avg.c 
+  131  ./a.out 
+  132  gcc avg.c 
+  133  ./a.out 
+  134  gcc avg.c 
+  135  ./a.out 
+  136  gcc avg.c 
+  137  ./a.out 
+  138  gcc avg.c 
+  139  ./a.out 
+  140  gcc avg.c 
+  141  ./a.out 
+  142  gcc avg.c 
+  143  ./a.out 
+  144  gcc avg.c 
+  145  ./a.out 
+  146  gcc avg.c 
+  147  ./a.out 
+  148  gcc avg.c 
+  149  ./a.out 
+  150  gcc avg.c 
+  151  ./a.out 
+  152  gcc avg.c 
+  153  ./a.out 
+  154  gcc avg.c 
+  155  ./a.out 
+  156  gcc avg.c 
+  157  ./a.out 
+  158  gcc avg.c 
+  159  ./a.out 
+  160  gcc avg.c 
+  161  ./a.out 
+  162  gcc avg.c 
+  163  ./a.out 
+  164  gcc avg.c 
+  165  ./a.out 
+  166  gcc avg.c 
+  167  ./a.out 
+  168  gcc avg.c 
+  169  ./a.out numbers.txt 
+  170  gcc avg.c 
+  171  ./a.out numbers.txt 
+  172  gcc avg.c 
+  173  ./a.out numbers.txt 
+  174  git status
+  175  git add avg.c numbers.txt 
+  176  git commit -am "average"
+  177  git push origin master
+  178  gcc avg.c 
+  179  ./a.out numbers.txt 
+  180  gcc avg.c 
+  181  ./a.out numbers.txt 
+  182  git status
+  183  git add avg.c worksheet2.txt 
+  184  git commit -am "modified worsksheet2 and avg.c"
+  185  git push origin master
+  186  git status
+  187  git add avg.c 
+  188  git commit -am "added avg.c"
+  189  git push origin master
+  190  git status
+  191  git add heapPractice.c 
+  192  git commit -am "heap"
+  193  git push origin master
+  194  gcc avg.c 
+  195  ./a.out num.txt
+  196  gcc avg.c 
+  197  ./a.out num.txt bun.txt
+  198  gcc avg.c 
+  199  ./a.out numbers.txt 
+  200  gcc avg.c 
+  201  ./a.out num.txt bun.txt
+  202  gcc avg.c 
+  203  ./a.out num.txt
+  204  echo $?
+  205  git status
+  206  git add avg.c 
+  207  git commit -am "updated avg.c"
+  208  git push origin master
+  209  man zip
+  210  zip -r proj1.zip avg.c
+  211  ls
+  212  mkdir zips
+  213  mv proj1.zip zips
+  214  cd zips/
+  215  LS
+  216  ls
+  217  unzip proj1.zip 
+  218  ls
+  219  diff avg.c ../avg.c
+  220  cd ..
+  221  git status
+  222  git add notes.txt 
+  223  git commit -am "notes"
+  224  git push origin master
+  225  git status
+  226  git add zips/
+  227  git commit -am "added gips"
+  228  git push origin master
+  229  git status
+  230  git commit -am "avg.c error handled"
+  231  git push origin master
+  232  gcc avg.c 
+  233  ./a.out num.txt
+  234  echo$?
+  235  echo $?
+  236  gcc avg.c 
+  237  ./a.out num.txt
+  238  echo $?
+  239  gcc avg.c 
+  240  ./a.out numbers.txt 
+  241  echo $?
+  242  git status
+  243  git add notes.txt 
+  244  git commit -am "notes"
+  245  git push origin master
+  246  cd zips/
+  247  ls
+  248  cd ..
+  249  git status
+  250  git add zips/proj1.zip 
+  251  git commit -am "proj1.zip updated"
+  252  git push origin master
+  253  cd zips/
+  254  ls
+  255  rm avg.c 
+  256  ls
+  257  unzip proj1.zip 
+  258  diff avg.c ../avg.c 
+  259  cd ..
+  260  gcc avg.c 
+  261  ./a.out numbers.txt 
+  262  gcc avg.c 
+  263  ./a.out numb.txt
+  264  echo $?
+  265  gcc avg.c 
+  266  ./a.out numbers.txt 
+  267  echo $?
+  268  cd zips
+  269  ls
+  270  rm avg.c 
+  271  rm proj1.zip 
+  272  ls
+  273  cd ..
+  274  git status
+  275  cd zips
+  276  cd ..
+  277  zip -r proj1.zip avg.c 
+  278  mv proj1.zip zips
+  279  cd zips/
+  280  ls
+  281  unzip proj1.zip 
+  282  diff avg.c ../avg.c 
+  283  ls
+  284  cd ..
+  285  git status
+  286  git add zips/proj1.zip 
+  287  git commit -am "proj1.zip updated"
+  288  git push origin master
+  289  man fgets
+  290  man fscanf
+  291  sudo apt install virtualbox
+  292  virtualbox 
+  293  sudo apt install virtualbox-dkms
+  294  sudo apt install linux-headers-generic
+  295  virtualbox
+  296  modprobe vboxdrv
+  297  sudo modprobe vboxdrv
+  298  virtualbox
+  299  kill all zoom
+  300  kill-all zoom
+  301  killall zoom
+  302  cd Desktop/
+  303  ls
+  304  cd CS100W/
+  305  ls
+  306  evince 2020_SUMMER_CS100W_Syllabus.pdf 
+  307  cd ..
+  308  cd Downloads/
+  309  ls
+  310  ls -ltr
+  311  mv 4657744.pdf /home/td/Desktop/CS100W/
+  312  mv Agile+Project+Management+For+Dummies,+2nd+Edition.pdf /home/td/Desktop/CS100W/
+  313  mv Cracking\ the\ Coding\ Interview\,\ 4\ Edition\ -\ 150\ Programming\ Interview\ Questions\ and\ Solutions.pdf /home/td/Desktop/CS100W/
+  314  cd ..
+  315  cd Desktop/
+  316  cd CS100W/
+  317  ls
+  318  evince 2020_SUMMER_CS100W_Syllabus.pdf 
+  319  cd Desktop/
+  320  ls
+  321  cd CS100W/
+  322  code .
+  323  evince 2020_SUMMER_CS100W_Syllabus.pdf 
+  324  cd ..
+  325  cd CS149-SJSU/
+  326  code .
+  327  cd ..
+  328  cd CS100W/
+  329  evince 2020
+  330  cd CS100W/
+  331  ls
+  332  evince 2020_SUMMER_CS100W_Syllabus.pdf 
+  333  cd Downloads/
+  334  ls -ltr
+  335  evince 9781337694193_Discrete_Mathematics_with_Applications_5th_3f15.pdf 
+  336  killall zoom
+  337  free
+  338  exit
+  339  gcc season.c 
+  340  ./a.out 
+  341  gcc season.c 
+  342  ./a.out 
+  343  gcc season.c 
+  344  ./a.out 
+  345  gcc season.c 
+  346  ./a.out 
+  347  gcc season.c 
+  348  ./a.out 
+  349  gcc season.c 
+  350  ./a.out 
+  351  gcc season.c 
+  352  ./a.out 
+  353  gcc season.c 
+  354  ./a.out 
+  355  gcc season.c 
+  356  ./a.out 
+  357  gcc season.c 
+  358  ./a.out 
+  359  gcc season.c 
+  360  ./a.out 
+  361  gcc season.c 
+  362  ./a.out 
+  363  gcc season.c 
+  364  ./a.out 
+  365  gcc season.c 
+  366  ./a.out 
+  367  gcc season.c 
+  368  ./a.out 
+  369  gcc season.c 
+  370  ./a.out 
+  371  gcc season.c 
+  372  ./a.out 
+  373  gcc season.c 
+  374  ./a.out 
+  375  gcc season.c 
+  376  ./a.out 
+  377  gcc season.c 
+  378  ./a.out 
+  379  gcc season.c 
+  380  ./a.out 
+  381  gcc season.c 
+  382  ./a.out 
+  383  git status
+  384  git add season.c 
+  385  git commit -am "season.c"
+  386  git push origin master
+  387  git status
+  388  git add interstate.c 
+  389  git commit -am "if-else"
+  390  git push origin master
+  391  git status
+  392  git add interstate.c 
+  393  git commit -am "if-else"
+  394  git push origin master
+  395  git status
+  396  git add notes.txt 
+  397  git commit -am "if-else"
+  398  git push origin master
+  399  gcc interstate.c 
+  400  ./a.out 
+  401  gcc interstate.c 
+  402  ./a.out 
+  403  gcc interstate.c 
+  404  ./a.out 
+  405  gcc interstate.c 
+  406  ./a.out 
+  407  gcc interstate.c 
+  408  ./a.out 
+  409  gcc interstate.c 
+  410  ./a.out 
+  411  gcc interstate.c 
+  412  ./a.out 
+  413  gcc interstate.c 
+  414  ./a.out 
+  415  gcc interstate.c 
+  416  ./a.out 
+  417  gcc interstate.c 
+  418  ./a.out 
+  419  gcc interstate.c 
+  420  ./a.out 
+  421  gcc interstate.c 
+  422  ./a.out 
+  423  gcc interstate.c 
+  424  ./a.out 
+  425  gcc interstate.c 
+  426  ./a.out 
+  427  gcc interstate.c 
+  428  ./a.out 
+  429  gcc interstate.c 
+  430  ./a.out 
+  431  gcc interstate.c 
+  432  ./a.out 
+  433  gcc interstate.c 
+  434  ./a.out 
+  435  gcc interstate.c 
+  436  ./a.out 
+  437  git status
+  438  git add interstate.c 
+  439  git commit -am "updated interstate.c"
+  440  git push origin master
+  441  gcc interstate.c 
+  442  ./a.out 
+  443  git add interstate.c 
+  444  git commit -am "updated interstate.c"
+  445  git push origin master
+  446  gcc season.c 
+  447  ./a.out 
+  448  gcc season.c 
+  449  March
+  450  gcc season.c 
+  451  ./a.out 
+  452  gcc season.c 
+  453  ./a.out 
+  454  git status
+  455  git add season.c 
+  456  git add interstate.c 
+  457  git commit -am "season"
+  458  git push origin master
+  459  gcc season.c 
+  460  ./a.out 
+  461  gcc season.c 
+  462  ./a.out 
+  463  gcc season.c 
+  464  ./a.out 
+  465  gcc season.c 
+  466  ./a.out 
+  467  git add season.c 
+  468  git commit -am "season"
+  469  git push origin master
+  470  gcc season.c 
+  471  ./a.out 
+  472  gcc season.c 
+  473  ./a.out 
+  474  gcc season.c 
+  475  ./a.out 
+  476  gcc binary.c 
+  477  ./a.out 
+  478  gcc binary.c 
+  479  ./a.out 
+  480  gcc binary.c 
+  481  ./a.out 
+  482  gcc binary.c 
+  483  ./a.out 
+  484  gcc binary.c 
+  485  ./a.out 
+  486  git add binary.c 
+  487  git commit -am "binary"
+  488  git push origin master
+  489  gcc binary.c 
+  490  ./a.out 
+  491  gcc binary.c 
+  492  ./a.out 
+  493  gcc binary.c 
+  494  ./a.out 
+  495  gcc binary.c 
+  496  ./a.out 
+  497  gcc binary.c 
+  498  ./a.out 
+  499  gcc binary.c 
+  500  ./a.out 
+  501  gcc binary.c 
+  502  ./a.out 
+  503  gcc binary.c 
+  504  ./a.out 
+  505  gcc binary.c 
+  506  ./a.out 
+  507  gcc binary.c 
+  508  ./a.out 
+  509  gcc binary.c 
+  510  ./a.out 
+  511  gcc binary.c 
+  512  ./a.out 
+  513  gcc binary.c 
+  514  ./a.out 
+  515  killall zoom
+  516  cd Desktop/
+  517  ls
+  518  cd books/
+  519  ls
+  520  cd operatingSystem/
+  521  ls
+  522  gcc binary.c 
+  523  ./a.out 
+  524  gcc binary.c 
+  525  ./a.out 
+  526  gcc binary.c 
+  527  ./a.out 
+  528  gcc binary.c 
+  529  ./a.out 
+  530  gcc binary.c 
+  531  ./a.out 
+  532  gcc binary.c 
+  533  ./a.out 
+  534  gcc binary.c 
+  535  ./a.out 
+  536  gcc 4.16InputAvgMax.c 
+  537  ./a.out 
+  538  gcc 4.16InputAvgMax.c 
+  539  ./a.out 
+  540  gcc 4.16InputAvgMax.c 
+  541  ./a.out 
+  542  gcc 4.16InputAvgMax.c 
+  543  ./a.out 
+  544  gcc 4.16InputAvgMax.c 
+  545  ./a.out 
+  546  gcc 4.16InputAvgMax.c 
+  547  ./a.out 
+  548  gcc 4.16InputAvgMax.c 
+  549  ./a.out 
+  550  gcc 4.16InputAvgMax.c 
+  551  ./a.out 
+  552  gcc 4.16InputAvgMax.c 
+  553  ./a.out 
+  554  gcc reverseArray.c 
+  555  ./a.out 
+  556  gcc reverseArray.c 
+  557  ./a.out 
+  558  gcc reverseArray.c 
+  559  ./a.out 
+  560  gcc reverseArray.c 
+  561  ./a.out 
+  562  gcc reverseArray.c 
+  563  ./a.out 
+  564  gcc reverseArray.c 
+  565  ./a.out 
+  566  gcc reverseArray.c 
+  567  ./a.out 
+  568  gcc reverseArray.c 
+  569  ./a.out 
+  570  gcc reverseArray.c 
+  571  ./a.out 
+  572  gcc reverseArray.c 
+  573  ./a.out 
+  574  gcc middleitem.c 
+  575  ./a.out 
+  576  gcc middleitem.c 
+  577  ./a.out 
+  578  gcc middleitem.c 
+  579  ./a.out 
+  580  gcc middleitem.c 
+  581  ./a.out 
+  582  gcc middleitem.c 
+  583  ./a.out 
+  584  gcc middleitem.c 
+  585  ./a.out 
+  586  gcc middleitem.c 
+  587  ./a.out 
+  588  git status
+  589  git add average2.c middleitem.c reverseArray.c worksheet2.txt worsksheet3.txt binary.c notes.txt assignment2.pdf 
+  590  git commit -am "added middleitem"
+  591  git push origin master
+  592  gcc range.c 
+  593  ./a.out 
+  594  gcc range.c 
+  595  ./a.out 
+  596  gcc range.c 
+  597  ./a.out 
+  598  gcc range.c 
+  599  ./a.out 
+  600  gcc 2smallnums.c 
+  601  ./a.out 
+  602  gcc 2smallnums.c 
+  603  ./a.out 
+  604  git status
+  605  git add containsCharacter.c worsksheet3.txt 2smallnums.c range.c 
+  606  git commit -am ""
+  607  git commit -am "added new files"
+  608  git push origin master
+  609  git status
+  610  git status
+  611  git add 4.16InputAvgMax.c 
+  612  git commit -am "average max"
+  613  git push origin master
+  614  gcc middleitem.c 
+  615  ./a
+  616  ./a.out 
+  617  gcc middleitem.c 
+  618  ./a.out 
+  619  gcc middleitem.c 
+  620  ./a.out 
+  621  gcc middleitem.c 
+  622  ./a.out 
+  623  gcc middleitem.c 
+  624  ./a.out 
+  625  gcc middleitem.c 
+  626  ./a.out 
+  627  gcc middleitem.c 
+  628  ./a.out 
+  629  gcc middleitem.c 
+  630  ./a.out 
+  631  gcc middleitem.c 
+  632  ./a.out 
+  633  gcc belowAmount.c 
+  634  ./a.out 
+  635  gcc belowAmount.c 
+  636  ./a.out 
+  637  gcc belowAmount.c 
+  638  ./a.out 
+  639  gcc belowAmount.c 
+  640  ./a.out 
+  641  gcc belowAmount.c 
+  642  ./a.out 
+  643  gcc belowAmount.c 
+  644  ./a.out 
+  645  gcc belowAmount.c 
+  646  ./a.out 
+  647  gcc belowAmount.c 
+  648  ./a.out 
+  649  gcc belowAmount.c 
+  650  ./a.out 
+  651  gcc belowAmount.c 
+  652  ./a.out 
+  653  gcc belowAmount.c 
+  654  ./a.out 
+  655  gcc belowAmount.c 
+  656  ./a.out 
+  657  gcc belowAmount.c 
+  658  ./a.out 
+  659  gcc belowAmount.c 
+  660  ./a.out 
+  661  gcc belowAmount.c 
+  662  ./a.out 
+  663  gcc belowAmount.c 
+  664  ./a.out 
+  665  gcc belowAmount.c 
+  666  ./a.out 
+  667  gcc belowAmount.c 
+  668  ./a.out 
+  669  gcc belowAmount.c 
+  670  ./a.out 
+  671  gcc belowAmount.c 
+  672  ./a.out 
+  673  git status
+  674  git add belowAmount.c worsksheet3.txt 
+  675  git commit -am "below amount"
+  676  git push origin master
+  677  git commit -am "below amount"
+  678  git status
+  679  git add containsCharacter.c 
+  680  git commit -am "below amount"
+  681  git push origin master
+  682  killall zoom
+  683  cd Desktop/
+  684  ls
+  685  cd CS149-SJSU/
+  686  git status
+  687  git pull --rebase origin master
+  688  git status
+  689  code .
+  690  cd..
+  691  cd
+  692  cd ..
+  693  wget https://github.com/torvalds/linux/archive/master.zip
+  694  unzip master.zip
+  695  wget https://github.com/torvalds/linux/archive/master.zip
+  696  ls
+  697  cd td
+  698  cd Desktop/
+  699  cd CS149-SJSU/
+  700  wget https://github.com/torvalds/linux/archive/master.zip
+  701  unzip master.zip 
+  702  cd linux-master
+  703  pwd
+  704  alias l='ls -latr'
+  705  l
+  706  find . -name mem.c
+  707  find . -name mem.c | xargs head
+  708  find . -name mem.c | xargs grep 86
+  709  cd ..
+  710  history > worksheet3.log
+  711  head worksheet3.log
+  712  git status
+  713  git add worksheet3.log 
+  714  git push origin master
+  715  git commit -am "worksheet3.log"
+  716  git push origin master
+  717  git status
+  718  cd Desktop/
+  719  ls
+  720  cd CS149-SJSU/
+  721  ls
+  722  git pull --rebase origin master
+  723  Ranch4Road8
+  724* 
+  725  git pull --rebase origin master
+  726  code .
+  727  pwd
+  728  pstree
+  729  ps -a -f -x
+  730  ps -a -f -x | more
+  731  top
+  732  man kill
+  733  echo $?
+  734  echo $$
+  735  history > worksheet4.log
