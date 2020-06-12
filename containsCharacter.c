@@ -13,7 +13,9 @@ drizzle
 */
 #include <stdio.h>
 #include <string.h>
+int Contains(char* a, int size, char c){
 
+}
 int main(void) {
    //20 is the number of the strings in the array
    //10 is the length of the string
@@ -21,20 +23,21 @@ int main(void) {
    int stringLength = 10;
    char str[numofString][stringLength];
    int i = 0;
+   int len;
+   scanf("%d", &len);
    while(1){
        scanf("%s", str[i]); 
-       if(i > 4){
+       if(i > len+1){
            break;
        }
        i++;
        
    }
     for(int k = 0; k < i; k++){
-      if(str[k].contains())
-        printf("%s ", str[k]);
+      if(str[k].Contains('z') == 1){
+          printf("%s ", str[k]);
+      }
+        
     }
-                         
-
-
    return 0;
 }
