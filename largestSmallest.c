@@ -1,23 +1,12 @@
-6.18
-#include <stdio.h>
-
-double MilesToLaps(double userMiles)
-{
-  double lap;
-  lap = userMiles / .25;
-  return lap;
-}
-
-int main(void)
-{
-  double mile = 0.0;
-  scanf("%lf", &mile);
-  double lap = MilesToLaps(mile);
-  printf("%0.2lf\n", lap);
-  return 0;
-}
-
-6.28
+/*Your program must define and call the following two functions. 
+The LargestNumber function should return the largest number of the three input values. 
+The SmallestNumber function should return the smallest number of the three input values.
+int LargestNumber(int userNum1, int userNum2, int userNum3)
+int SmallestNumber(int userNum1, int userNum2, int userNum3)
+input: 7 15 3
+largest: 15 
+smallest: 3
+*/
 #include <stdio.h>
 int LargestNumber(int userNum1, int userNum2, int userNum3)
 {
