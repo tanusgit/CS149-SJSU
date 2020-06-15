@@ -22,7 +22,8 @@ int average(char *filename)
     char buffer[1000];
     //opening the file for reading
     FILE *fp = fopen(filename, "r");
-    if (!fp)
+
+    if (fp == NULL)  // (!fp) is the same thing
     {
         printf("avg: cannot open file.\n");
         return 1;

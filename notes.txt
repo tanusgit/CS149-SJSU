@@ -8,3 +8,5 @@ to get last digit of a number take number % 10
 while(true) in c is while(1)
 
 clear bash history cat /dev/null > ~/.bash_history
+
+https://www.geeksforgeeks.org/c-program-demonstrate-fork-and-pipe/
