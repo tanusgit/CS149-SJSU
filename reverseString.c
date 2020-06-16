@@ -12,24 +12,38 @@ output:
 ereht olleH
 yeH
 */
-#include<stdio.h>
-#include<string.h>
+#include <stdio.h>
+#include <string.h>
 
-void reverse(){
+void reverse()
+{   
+    int numofstr = 0;
+    //one string won't be more than 50 chracters
     char str[50];
-    int m = 0;
+    
     //strlen() return the length of a string
-    while(1){
-        fgets(str, 50, stdin);
+    while (1)
+    {
+        scanf("%s", str);
         printf("%s", str);
-        m++;
+        //strcmp() takes 2 string as input and returns a boolean 0 if
+        //they are same
+        if (strcmp(str, "q") == 0 || strcmp(str, "quit") == 0 ||
+            strcmp(str, "Quit") == 0)
+        {
+            break;
+        }
+       // printf("%s", str);
+        numofstr++;
     }
-   int num = strlen(str);
-    for(int i = num; i >= 0; i--){
-        printf("%c",(char)str[i]);
+    int num = strlen(str);
+    for (int i = num; i >= 0; i--)
+    {
+      //  printf("%c", (char)str[i]);
     }
 }
-int main(){
-    reverse("Hello there");
+int main()
+{
+    reverse();
     return 0;
 }
