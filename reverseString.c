@@ -34,7 +34,11 @@ void reverse()
             break;
         }
         int num = strlen(str);
-        for (int i = 0; i < num/2; ++i)
+        /*for (int i = num; i >= 0; i--){
+            printf("%c", str[i]);
+        }
+        prinf("\n");*/
+       for (int i = 0; i < num/2; ++i)
         {
             char temp = str[i];
             str[i] = str[num-i-1];
