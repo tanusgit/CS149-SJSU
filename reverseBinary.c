@@ -26,11 +26,12 @@ void ReverseString(char inputString[], char reversedString[])
     reversedString[num] = '\0';
 }
 
-int main(int argc, char* argv[])
+int main(void)
 {
     char binaryValue[100];
     char value[100];
-    int input = atoi(argv[1]);
+    int input;
+    scanf("%d", &input);
     IntegerToReverseBinary(input, binaryValue);
    // printf("\n The string for the num is %s\n", binaryValue);
     ReverseString(binaryValue, value);
