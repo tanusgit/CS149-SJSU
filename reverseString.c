@@ -17,15 +17,15 @@ yeH
 
 void reverse()
 {   
-    int numofstr = 0;
     //one string won't be more than 50 chracters
     char str[50];
     
     //strlen() return the length of a string
     while (1)
     {
-        scanf("%s", str);
-        printf("%s", str);
+        //scanf("%s", str);
+        scanf(" %[^\n]",str);
+        //printf("Orig:%s\n", str);
         //strcmp() takes 2 string as input and returns a boolean 0 if
         //they are same
         if (strcmp(str, "q") == 0 || strcmp(str, "quit") == 0 ||
@@ -33,13 +33,14 @@ void reverse()
         {
             break;
         }
-       // printf("%s", str);
-        numofstr++;
-    }
-    int num = strlen(str);
-    for (int i = num; i >= 0; i--)
-    {
-      //  printf("%c", (char)str[i]);
+        int num = strlen(str);
+        for (int i = 0; i < num/2; ++i)
+        {
+            char temp = str[i];
+            str[i] = str[num-i-1];
+            str[num-i-1] = temp;
+        }
+        printf("%s\n", str);
     }
 }
 int main()
