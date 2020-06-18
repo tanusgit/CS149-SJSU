@@ -50,10 +50,10 @@ void IntegerToReverseBinary(int integerValue, char binaryValue[])
 }
 
 void ReverseString(char inputString[], char reversedString[])
-{
+{   //storing the length of inputString in num
     int num = strlen(inputString);
     for (int i = 0; i < num; ++i)
-    {
+    {   //reversing the string
         reversedString[i] = inputString[num - i - 1];
     }
     reversedString[num] = '\0';
@@ -64,6 +64,7 @@ int main(void)
     char binaryValue[100];
     char value[100];
     int input;
+    //taking user input
     scanf("%d", &input);
     IntegerToReverseBinary(input, binaryValue);
     ReverseString(binaryValue, value);
