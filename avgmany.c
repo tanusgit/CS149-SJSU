@@ -34,143 +34,56 @@ child process finished and then clean up all the resource that
 child process was used? 
 ans: yes
 */
-int average();
 
 int main(int argc, char *argv[])
-{   // 0 is the read end of the pipe and 1 is the write end of the pipe
+{ // 0 is the read end of the pipe and 1 is the write end of the pipe
     int pipefd[2];
     int value;
-    char *filename;
+    char *filename = argv[1];
     //creating pipe
     pipe(pipefd);
     int p = fork();
+
     if (p == 0)
-    {
-        printf("in child");
-
-       value =  average(filename);
-
-    }
-    else if (p != 0)
-    {
-        printf("in parent");
-        for (int i = 0; i < argc; i++)
+    { //in child
+        double sum = 0;
+        int count = 0;
+        char buffer[1000];
+        //opening the file for writing and reading
+        FILE *fp = fopen(filename, "r+");
+        if (fp == NULL) // (!fp) is the same thing
         {
-            filename = argv[i];
-            value = average(filename);
-            printf("\n");
+            printf("avg: cannot open file.\n");
+            return 1;
         }
-    }
-
-    if (argc != 2)
-    {
-        return 0;
-    }
-
-    return value;
-}
-
-
-
-
-
-
-int average(char *filename)
-{
-    double sum = 0;
-    int count = 0;
-    char buffer[1000];
-    //opening the file for reading
-    FILE *fp = fopen(filename, "r");
-
-    if (fp == NULL) // (!fp) is the same thing
-    {
-        printf("avg: cannot open file.\n");
-        return 1;
-    }
-    //reading all the numbers till end of file
-    while (fscanf(fp, "%s", buffer) != EOF)
-    { //converting string to float
-        float x = atof(buffer);
-        //adding all the numbers
-        sum = sum + x;
-        count++;
-    }
-    if (count == 0)
-    {
+        //reading all the numbers till end of file
+        while (fscanf(fp, "%s", buffer) != EOF)
+        { //converting string to float
+            float x = atof(buffer);
+            //adding all the numbers
+            sum = sum + x;
+            count++;
+        }
+        if (count == 0)
+        {
+            fclose(fp);
+            return 0;
+        }
+        //taking the average of the numbers
+        double avg = (sum / count);
+        printf("testing if avg is being calculated %lf\n", avg);
+        //now write the falue in the file
+        fprintf(fp, "%lf\n", avg);
         fclose(fp);
-        return 0;
     }
-    //taking the average of the numbers
-    double avg = (sum / count);
-    //displaying the average of the numbers
-    printf("%lf", avg);
-    fclose(fp);
-    return 0;
+    else if (p > 0)
+    {
+        double value;
+        //opening the file for writing
+        FILE *fp = fopen(filename, "r");
+        fscanf(fp, "%lf", &value);
+        printf("in parent ");
+        printf("average  %lf\n", value);
+        fclose(fp);
+    }
 }
-
-
-
-
-
-
------------------------------------
-
-    if (p < 0) 
-    { 
-        fprintf(stderr, "fork Failed" ); 
-        return 1; 
-    } 
-  
-    // Parent process 
-    else if (p > 0) 
-    { 
-        char concat_str[100]; 
-  
-        close(fd1[0]);  // Close reading end of first pipe 
-  
-        // Write input string and close writing end of first 
-        // pipe. 
-        write(fd1[1], input_str, strlen(input_str)+1); 
-        close(fd1[1]); 
-  
-        // Wait for child to send a string 
-        wait(NULL); 
-  
-        close(fd2[1]); // Close writing end of second pipe 
-  
-        // Read string from child, print it and close 
-        // reading end. 
-        read(fd2[0], concat_str, 100); 
-        printf("Concatenated string %s\n", concat_str); 
-        close(fd2[0]); 
-    } 
-  
-    // child process 
-    else
-    { 
-        close(fd1[1]);  // Close writing end of first pipe 
-  
-        // Read a string using first pipe 
-        char concat_str[100]; 
-        read(fd1[0], concat_str, 100); 
-  
-        // Concatenate a fixed string with it 
-        int k = strlen(concat_str); 
-        int i; 
-        for (i=0; i<strlen(fixed_str); i++) 
-            concat_str[k++] = fixed_str[i]; 
-  
-        concat_str[k] = '\0';   // string ends with '\0' 
-  
-        // Close both reading ends 
-        close(fd1[0]); 
-        close(fd2[0]); 
-  
-        // Write concatenated string and close writing end 
-        write(fd2[1], concat_str, strlen(concat_str)+1); 
-        close(fd2[1]); 
-  
-        exit(0); 
-    } 
-} 
