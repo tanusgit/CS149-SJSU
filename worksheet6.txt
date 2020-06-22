@@ -1,83 +1,76 @@
 5.27
-#include <stdio.h> 
-#include <string.h> 
-
-void isPalindrome(char str[]) 
-{  
-
-int l = 0; 
-int h = strlen(str) - 1; 
-
-while (h > l) 
+#include <stdio.h>
+#include <string.h>
+void isPalindrome(char str[])
 {
-if(str[h]==' ')
-{
-h=h-1;
-}
-else if(str[l]==' ')
-{
-l=l+1;
-}
-else if (str[l++] != str[h--]) 
-{ 
-printf("%s is not a palindrome\n", str); 
-return; 
-} 
-} 
-printf("%s is a palindrome\n", str); 
-} 
+    int l = 0;
+    int h = strlen(str) - 1;
 
-int main() 
-{ 
-    char input[1000];
-    //getting user input
-    gets(input);
-
-isPalindrome(input); 
-return 0; 
-
-}
-
-6.33
-
-#include<stdio.h>
-void SortArray(int arr[],int n)
-{
-int i;
-int j;
-for(i=0;i<n-1;i++)
-{
-for(j=0;j<n-i-1;j++)
-{
-if(arr[j]>arr[j+1])
-{
-int temp=arr[j];
-arr[j]=arr[j+1];
-arr[j+1]=temp;
-}
-}
-
-}
-
+    while (h > l)
+    {   //decrementing position if space comes
+        if (str[h] == ' ')
+        {
+            h = h - 1;
+        }
+        //inrementing position if space comes
+        else if (str[l] == ' ')
+        {
+            l = l + 1;
+        }
+        else if (str[l++] != str[h--])
+        {
+            printf("%s is not a palindrome\n", str);
+            return;
+        }
+    }
+    printf("%s is a palindrome\n", str);
 }
 
 int main()
 {
-int n;
-scanf("%d", &n);
-int arr[n];
+    char input[1000];
+    gets(input);
 
-for(int i =0; i < n ; i++){
-  scanf("%d", &arr[i]);
+    isPalindrome(input);
+    return 0;
 }
-SortArray(arr, n);
 
-int k;
+6.33
 
-for(k=0;k<n;k++)
+#include <stdio.h>
+void SortArray(int arr[], int n)
 {
-printf("%d ",arr[k]);
+    
+    for (int i = 0; i < n - 1; i++)
+    {
+        for (int j = 0; j < n - i - 1; j++)
+        {
+            if (arr[j] > arr[j + 1])
+            {   //swapping elements
+                int temp = arr[j];
+                arr[j] = arr[j + 1];
+                arr[j + 1] = temp;
+            }
+        }
+    }
 }
-printf("\n");
-return 0;
+
+int main()
+{
+    int n;
+    scanf("%d", &n);
+    int arr[n];
+
+    for (int i = 0; i < n; i++)
+    {
+        scanf("%d", &arr[i]);
+    }
+    SortArray(arr, n);
+
+    for (int k = 0; k < n; k++)
+    {
+        printf("%d ", arr[k]);
+    }
+    printf("\n");
+    return 0;
 } 

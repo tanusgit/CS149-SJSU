@@ -1,0 +1,26 @@
+6.25
+#include <stdio.h>
+#include <string.h>
+//n It's a sunny day output: 2
+/* Define your function here */
+int CountCharacters(char c, char input[])
+{
+    int num = 0;
+    for(int i = 0; i < strlen(input); i++){
+        if(input[i] == c){
+            num++;
+        }
+    }
+    return num;
+}
+
+int main(void)
+{
+    char c;
+    scanf("%c", &c);
+    char input[50];
+    gets(input);
+    int num = CountCharacters(c, input);
+    printf("%d\n", num);
+    return 0;
+}

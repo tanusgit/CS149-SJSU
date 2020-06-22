@@ -1,4 +1,4 @@
-#include <stdio.h>
+/*#include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 void palindrome()
@@ -33,43 +33,40 @@ int main()
 {
     palindrome();
 }
+*/
 
-/*
-#include <stdio.h> 
-#include <string.h> 
-void isPalindrome(char str[]) 
-{  
-
-int l = 0; 
-int h = strlen(str) - 1; 
-
-while (h > l) 
+#include <stdio.h>
+#include <string.h>
+void isPalindrome(char str[])
 {
-if(str[h]==' ')
-{
-h=h-1;
+    int l = 0;
+    int h = strlen(str) - 1;
+
+    while (h > l)
+    {
+        if (str[h] == ' ')
+        {
+            h = h - 1;
+        }
+        else if (str[l] == ' ')
+        {
+            l = l + 1;
+        }
+        else if (str[l++] != str[h--])
+        {
+            printf("%s is not a palindrome\n", str);
+            return;
+        }
+    }
+    printf("%s is a palindrome\n", str);
 }
-else if(str[l]==' ')
-{
-l=l+1;
-}
-else if (str[l++] != str[h--]) 
-{ 
-printf("%s is not a palindrome\n", str); 
-return; 
-} 
-} 
-printf("%s is a palindrome\n", str); 
-} 
 
-int main() 
-{ 
+int main()
+{
     char input[1000];
     gets(input);
 
-isPalindrome(input); 
-return 0; 
-
+    isPalindrome(input);
+    return 0;
 }
 
-*/
