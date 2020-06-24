@@ -7,6 +7,8 @@ int CountCharacters(char c, char input[])
 {
     int num = 0;
     for(int i = 0; i < strlen(input); i++){
+        //checking all the characters if the are 
+        //same as the given character
         if(input[i] == c){
             num++;
         }
@@ -24,3 +26,6 @@ int main(void)
     printf("%d\n", num);
     return 0;
 }
+
+
+
