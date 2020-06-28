@@ -34,7 +34,7 @@ int average(char *filename, int write_sum_fd, int write_count_fd)
     write(write_count_fd, &count, sizeof(count));
 
     //taking the average of the numbers
-    double avg = (sum / count);
+   // double avg = (sum / count);
     //displaying the average of the numbers
     //  printf("average: %lf\n", avg);
     fclose(fp);
