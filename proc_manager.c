@@ -60,15 +60,15 @@ int main(int argc,char* argv[])
 		{
 			start=clock();
 			//printf("we are in the child process\n");
-			printf("process id of the child process is:%d\n",getpid());
+			//printf("process id of the child process is:%d\n",getpid());
 			fflush(stdin);
-			printf("process id of the parent process is:%d\n",getppid());
+			//printf("process id of the parent process is:%d\n",getppid());
 			fflush(stdin);
             end = clock();
 			dur=clock()-start;
 			//CLOCKS_PER_SECOND
 			double time_taken = ((double)dur)/CLOCKS_PER_SEC;
-			printf("time taken is:%lf\n",time_taken);
+			//printf("time taken is:%lf\n",time_taken);
 			fflush(stdin);
 			CommandNode* head;
 			head= (CommandNode*)malloc(sizeof(CommandNode));
@@ -77,10 +77,11 @@ int main(int argc,char* argv[])
 			head->starttime=clock();
 			head->index=i;
 			//int to char in c/c++
+            i = i+ 1;
 			char d=i+'0';
 			fflush(stdin);
-			printf("in here\n");
-			printf("%c\n",d);
+			//printf("in here\n");
+			//printf("%c\n",d);
 			char arr[100];
 			char copyarr[1000];
 			arr[0]=d;
@@ -94,19 +95,19 @@ int main(int argc,char* argv[])
 			int len_outfile=strlen(arr);
 			for(i=0;i<len_outfile;i++)
 			{
-				printf("%c",arr[i]);
+				//printf("%c",arr[i]);
 			}
 			printf("\n");
 			fflush(stdin);
 			for(i=0;i<len_errorfile;i++)
 			{
-				printf("%c",copyarr[i]);
+				//printf("%c",copyarr[i]);
 			}
 			printf("\n");
 
 			fflush(stdin);
 			int n_size=strlen(arr);
-			printf("n size is:%d\n",n);
+			//printf("n size is:%d\n",n);
 			int j;
 			//opening file in append mode
             //ptr is for a.out file
