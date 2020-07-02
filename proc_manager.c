@@ -77,15 +77,16 @@ int main(int argc,char* argv[])
 			head->starttime=clock();
 			head->index=i;
 			//int to char in c/c++
-            i = i+ 1;
-			char d=i+'0';
+			char d=i+1+'0';
 			fflush(stdin);
 			//printf("in here\n");
 			//printf("%c\n",d);
 			char arr[100];
 			char copyarr[1000];
 			arr[0]=d;
+            arr[1]='\0';
 			copyarr[0]=d;
+            copyarr[1]='\0';
 			fflush(stdin);
 			char outfile[1000]=".out";
 			char errfile[1000]=".err";
@@ -115,7 +116,7 @@ int main(int argc,char* argv[])
 			if(time_taken<2)
 			{   //Starting command 1: child 2353 pid of parent 2234
                 //Finished at 90, runtime duration 1
-				fprintf(ptr,"Starting command 1: child 2353 pid of parent 2234\nFinished at %ld, runtime duration %lf\n",end, time_taken );
+				fprintf(ptr,"Starting command 1: child %d pid of parent %d\nFinished at %ld, runtime duration %lf\n", getpid(), getppid(),end, time_taken );
 				
 			}
 			fclose(ptr);
