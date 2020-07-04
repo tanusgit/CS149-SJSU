@@ -1,0 +1,7 @@
+prompt> cat cmdfile
+sleep 5
+ls -latr
+sleep 3
+pwd
+sleep 1
+wc /etc/passwd
