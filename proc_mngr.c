@@ -1,4 +1,4 @@
-//importing all libraries
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <sys/types.h>
@@ -11,7 +11,6 @@
 
 int main(int argc, char *argv[])
 {
-
     //declaring all necessary variables for getline statement
     char *line_buff = NULL;
     size_t line_buff_size = 0;
@@ -22,6 +21,8 @@ int main(int argc, char *argv[])
     ptr = fopen(argv[1], "r");
     int index;
     index = 1;
+    clock_t start_time,end_time;
+    double duration;
 
     CommandNode *head = NULL;
     int linesize;
@@ -44,13 +45,15 @@ int main(int argc, char *argv[])
         a = fork();
         if (a == 0)
         {
+
+            start_time=clock();
             tt->command;
-            clock_t end = clock();
-            clock_t dur = end - (tt->starttime);
+            end_time = clock();
+            duration = ((double)(end_time-start_time))/CLOCKS_PER_SEC;
             //CLOCKS_PER_SECOND
-            double time_taken = ((double)dur) / CLOCKS_PER_SEC;
+            
             int index_temp = tt->index;
-            char d = index_temp + 1 + '0';
+            char d = index_temp + '0';
             fflush(stdin);
             char arr[100];
             char copyarr[1000];
@@ -68,13 +71,13 @@ int main(int argc, char *argv[])
 
             //opening file in append mode
             //ptr is for a.out file
-            ptr = fopen(arr, "a");
-            if (time_taken < 2)
+            newptr = fopen(arr, "a");
+            if (duration< 2)
             {   //Starting command 1: child 2353 pid of parent 2234
                 //Finished at 90, runtime duration 1
-                fprintf(ptr, "Starting command 1: child %d pid of parent %d\nFinished at %ld, runtime duration %lf\n", getpid(), getppid(), end, time_taken);
+                fprintf(newptr, "Starting command 1: child %d pid of parent %d\nFinished at %ld, runtime duration %lf\n", getpid(), getppid(), end_time, duration);
             }
-            fclose(ptr);
+            fclose(newptr);
             //newptr is for error file
             newptr = fopen(copyarr, "a");
 
