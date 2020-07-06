@@ -1,4 +1,5 @@
-
+//http://www.csl.mtu.edu/cs4411.ck/www/NOTES/process/fork/exec.html 
+//http://www.it.uu.se/education/course/homepage/os/vt18/module-2/exec/ 
 #include <stdio.h>
 #include <stdlib.h>
 #include <sys/types.h>

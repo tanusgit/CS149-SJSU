@@ -1,7 +1,7 @@
 //test cases
 //num of days
 //arrays with stock price
-//https://practice.geeksforgeeks.org/problems/stock-buy-and-sell/0
+//https://practice.geeksforgeeks.org/problems/stock-buy-and-sell/0git 
 #include <stdio.h>
 
 int main()
