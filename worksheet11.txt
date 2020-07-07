@@ -1,0 +1,104 @@
+ItemToPurchase.h
+
+typedef struct item {
+char itemName [51];
+int itemPrice;
+int itemQuantity;
+} ItemToPurchase;
+
+void MakeItemBlank(ItemToPurchase *temp);
+void PrintItemCost(ItemToPurchase temp1, ItemToPurchase temp2); 
+
+ItemToPurchase.c
+#include<stdio.h>
+#include<stdlib.h>
+#include<string.h>
+#include "ItemToPurchase.h"
+void MakeItemBlank(ItemToPurchase* ptr)
+{
+    
+    ptr->itemPrice=0;
+    ptr->itemQuantity=0;
+    strcpy(ptr->itemName,"none");
+}
+
+void PrintItemCost(ItemToPurchase temp1, ItemToPurchase temp2)
+{
+    int a=temp1.itemQuantity;
+    int b=temp2.itemQuantity;
+    int c=temp1.itemPrice;
+    int d=temp2.itemPrice;
+    int e=a*c;
+    int f=b*d;
+    int price;
+    price=a*c+b*d;
+    printf("%s %d @ $%d = $%d\n", temp1.itemName, a, c, e);
+    printf("%s %d @ $%d = $%d\n", temp2.itemName, b, d, f);
+    printf("\nTotal: $%d\n",price);
+}
+
+
+main.c
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include "ItemToPurchase.h"
+int main()
+{
+  ItemToPurchase item1;
+  MakeItemBlank(&item1);
+  ItemToPurchase item2;
+  MakeItemBlank(&item2);
+  char name[100];
+  int price;
+  int quant;
+  char c;
+
+  printf("Item 1\n");
+  printf("Enter the item name:\n");
+  fgets(name, sizeof name, stdin);
+  // Remove newline from the name.
+  char *newlinepos;
+  if ((newlinepos=strchr(name, '\n')) != NULL)
+    *newlinepos = '\0';
+  strcpy(item1.itemName, name);
+
+  printf("Enter the item price:\n");
+  scanf("%d", &price);
+  item1.itemPrice = price;
+
+  printf("Enter the item quantity:\n");
+  scanf("%d", &quant);
+  item1.itemQuantity = quant;
+
+  c = getchar();
+  while (c != '\n' && c != EOF)
+  {
+    c = getchar();
+  }
+  printf("\n");
+  printf("Item 2\n");
+  printf("Enter the item name:\n");
+  fflush(stdin);
+  fgets(name, sizeof name, stdin);
+
+  // Remove newline from the name.
+  if ((newlinepos=strchr(name, '\n')) != NULL)
+    *newlinepos = '\0';
+
+  strcpy(item2.itemName, name);
+
+  printf("Enter the item price:\n");
+  scanf("%d", &price);
+  item2.itemPrice = price;
+
+  printf("Enter the item quantity:\n");
+  scanf("%d", &quant);
+  item2.itemQuantity = quant;
+
+  printf("\n");
+  printf("TOTAL COST\n");
+  PrintItemCost(item1, item2);
+  return 0;
+}
