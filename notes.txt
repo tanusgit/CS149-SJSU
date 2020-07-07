@@ -7,6 +7,14 @@ to get last 2 digit of a number take number % 100
 to get last digit of a number take number % 10
 while(true) in c is while(1)
 
+to check the error in code =={
+gcc wave.c -g
+gdb ./a.out
+r enter in the prompt
+q enter to quit
+
+}
+
 clear bash history cat /dev/null > ~/.bash_history
 
 https://www.geeksforgeeks.org/c-program-demonstrate-fork-and-pipe/
