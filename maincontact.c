@@ -6,13 +6,16 @@
 int main(){
 ContactNode* head = NULL;
 
-for(int i = 0; i < 3; i++){
+for(int i = 1; i < 4; i++){
     char name[100];
     char phone[100];
-    printf("enter name");
+    printf("Person %d\n", i);
+    printf("Enter name:\n");
     gets(name);
-    printf("enter phone number");
+    printf("Enter phone number:\n");
     gets(phone);
+    printf("You entered: %s, %s\n", name , phone);
+    printf("\n");
     if(head == NULL){
         head = CreateContactNode(name, phone);
     }
