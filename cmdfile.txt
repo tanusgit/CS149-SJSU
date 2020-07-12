@@ -1,4 +1,3 @@
-prompt> cat cmdfile
 sleep 5
 ls -latr
 sleep 3
