@@ -48,7 +48,7 @@ CommandNode* FindCommand(CommandNode* cmd, int pid) {
 
 char **get_input(char *input) {
 
-    char **command = malloc(8 * sizeof(char *));
+    char **command = malloc(20 * sizeof(char *));
     char *separator = " ";
     char *parsed;
     int index = 0;
@@ -56,7 +56,6 @@ char **get_input(char *input) {
     while (parsed != NULL) {
         command[index] = parsed;
         index++;
-
         parsed = strtok(NULL, separator);
     }
 
@@ -92,20 +91,22 @@ int main(int argc,char* argv[])
 	struct timeval start, end,start_new,end_new;
 	CommandNode* head=NULL;
 	int linesize;
-	
-    
-    
 	head=(CommandNode*)malloc(sizeof(CommandNode));
-	CreateCommandNode(head,"hello world",index,NULL);
+	char head_cmd[20][20];
+	strcpy(head_cmd[0], "hello world");
+	CreateCommandNode(head, head_cmd, index, NULL);
+	CommandNode* tail = head;
 	while(linesize=getline(&line_buff,&line_buff_size,ptr)>=0)
 	{
-		//printf("%s",line_buff);
+		char node_cmd[20][20];
+		strcpy(node_cmd[0], line_buff);
+		//printf("%s\n",node_cmd[0]);
 		index=index+1;
 		CommandNode* temp=(CommandNode*)malloc(sizeof(CommandNode));
-		CreateCommandNode(temp,line_buff,index,NULL);
-		InsertCommandAfter(head,temp);
+		CreateCommandNode(temp,node_cmd,index,NULL);
+		InsertCommandAfter(tail, temp);
+		tail = temp;
 		line_size++;
-
 	}
 	CommandNode* tp=head;
 	CommandNode* tu=head;
@@ -131,9 +132,10 @@ int main(int argc,char* argv[])
 			
 			//printf("[son] pid %d from [parent] pid %d\n",getpid(),getppid()); 
 			char temp[20];
-			strcpy(temp,tt->command);
+			strcpy(temp, tt->command[0]);
 			int u=strlen(temp);
-			temp[u-1]='\0';
+			if (temp[u-1] == '\n')
+				temp[u-1]='\0';
 			char** cmd;
 			cmd=get_input(temp);
 			int index_temp = tt->index;
@@ -168,36 +170,8 @@ int main(int argc,char* argv[])
 			long seconds = (end.tv_sec - start.tv_sec);
 			long micros = ((seconds * 1000000) + end.tv_usec) - (start.tv_usec);
 			double duration=(double)(end_time-start_time)/CLOCKS_PER_SEC;
-			/*
-			int index_temp = tt->index;
-      		char d = index_temp + '0';
-      		fflush(stdin);
-      		arr[0] = d;
-      		arr[1] = '\0';
-      		copyarr[0] = d;
-      		copyarr[1] = '\0';
-      		fflush(stdin);
-      		char outfile[1000] = ".out";
-      		char errfile[1000] = ".err";
-      		strcat(arr, outfile);     //i.out
-      		strcat(copyarr, errfile);
-      		
-      		
-      		newptr = fopen(arr, "a"); 
-      		
-      		if (micros< 2000000)
-      		{
 
-
-        //Starting command 1: child 2353 pid of parent 2234
-                //Finished at 90, runtime duration 1
-                printf("I am here\n");
-        		fprintf(newptr, "Starting command %d: child %d pid of parent %d\nruntime duration %lf\n", tt->index,process_id, p_process_id, micros);
-        		fclose(newptr);
-      		}
-      		*/
       		hell:
-
       			 if(micros>2000000)
       			{
       				int pp;
@@ -206,12 +180,11 @@ int main(int argc,char* argv[])
             		{
             			char **t_cmd;
             			char temp_new[20];
-            			strcpy(temp_new,tt->command);
+            			strcpy(temp_new,tt->command[0]);
             			int uu=strlen(temp_new);
             			temp_new[uu-1]='\0';
             			t_cmd=get_input(temp_new);
             			execvp(t_cmd[0],t_cmd);
-
             		}
             		else if(pp>0)
             		{
@@ -257,25 +230,11 @@ int main(int argc,char* argv[])
       		//printf("before seg fault\n");
       		ptr=fopen(copyarr,"a");
       		{
-      			 fprintf(ptr, "Exited with exit code:%d\n",errno);
+      			fprintf(ptr, "Exited with exit code:%d\n",errno);
           		fprintf(ptr,"spawning too fast");
       			fclose(ptr);
       		}
       		tt=tt->nextCommandPtr;
 		}
-		
 	}
-	/*
-	for(int i=0;i<5;i++) // loop will run n times (n=5) 
-	{ 
-		if(fork() == 0) 
-		{ 
-			printf("[son] pid %d from [parent] pid %d\n",getpid(),getppid()); 
-			exit(0); 
-		} 
-	} 
-	for(int i=0;i<5;i++) // loop will run n times (n=5) 
-	wait(NULL); 
-	*/
-	
-} 
+}
