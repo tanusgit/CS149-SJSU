@@ -1,0 +1,56 @@
+
+  422  cd Desktop/CS149-SJSU/apue.3e/
+  423  rsync -arv filedir/ filedir1/
+  424  cp -r filedir/ filedir2/
+  425  ls -latr filedir1/
+  426  ls -latr filedir2/
+  427  cd filedir1
+  428  strace cat filetype.c
+  429  mv filedir1 filedir2
+  430  mv filedir1.c filedir2.c
+  431  mv filetype.c filetype1.c
+  432  cat filetype1.c 
+  433  echo hello > file.txt
+  434  stat file.txt
+  435  strace mkdir mydir
+  436  ls -a
+  437  ls -al
+  438  cd mydir
+  439  ls
+  440  makefile text.c
+  441  touch text.c
+  442  ls
+  443  cd ..
+  444  ls -al
+  445  rmdir()
+  446  rm -rf mydir
+  447  ls -al
+  448  touch txt1.c txt2.c
+  449* cat txt
+  450* vi txt
+  451  cat txt1.c
+  452  vi txt2.c
+  453  cat txt2.c
+  454  cp txt1.c txt2.c
+  455  cat taxt1.c
+  456  cat tax1.c
+  457  cat txt1.c
+  458  cat txt2.c
+  459  cp -r txt1.c txt2.c
+  460  cat txt1.c
+  461  cat txt2.c
+  462  rsync 
+  463  rsync txt1.c txt2.c
+  464  cat txt1.c
+  465  cat txt2.c
+  466  find /home -name *.jpg
+  467  find /home -name *.png
+  468  find . -name txt1.c
+  469  find . -type f -empty
+  470  df
+  471  du -sh .
+  472  du -sh ..
+  473  du -sh ...
+  474  pwd
+  475  df /home
+  476  history > worksheet14.log

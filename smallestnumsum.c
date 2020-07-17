@@ -21,7 +21,7 @@ int main()
 
     for (int i = 0; i < 7; i++)
     {
-        printf(" %d = ", array[i]);
+        printf(" %d, ", array[i]);
     }
 
     for (int i = 0; i < 4; i++)
