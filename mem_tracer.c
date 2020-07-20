@@ -11,7 +11,8 @@ char* buffer;
     //size_t is always greater than 0
     int c;
 while ((c = getline(&buffer,&bufsize,ptr))>=0)
-    { 
+    {
+        printf("printing c %d\n", c);
         strcpy(&array[i++],buffer);
         
     }
