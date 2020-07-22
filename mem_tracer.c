@@ -7,6 +7,39 @@ typedef struct linkedNode{
     linkedNode* next;
 }linkedNode;
 
+pushfront(char* name){
+ linkedNode* node = (linkedNode*)malloc(sizeof(char));
+}
+
+popfront(){
+
+}
+
+key topfront(){
+
+}
+
+pushback(){
+
+}
+popback(){
+
+}
+key topback(){
+
+}
+delete(){
+
+}
+addbefore(node, key){
+
+}
+addafter(node, key){
+
+}
+boolean isempty(){
+
+}
 linkedNode add(linkedNode head, char* name, int indexnum){
     linkedNode* head = (linkedNode*)malloc(sizeof(char));
     if(head == NULL){
