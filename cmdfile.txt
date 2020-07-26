@@ -4,3 +4,8 @@ sleep 3
 pwd
 sleep 1
 wc /etc/passwd
+pwd
+ls
+ls -ltr
+sleep 1
+wc /etc/passwd

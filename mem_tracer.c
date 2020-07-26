@@ -3,8 +3,10 @@
 #include <string.h>
 #include <unistd.h>
 #include <fcntl.h>
-#define MAX_LINE 10
-#define MAX_LENGTH 5
+#include <assert.h>
+
+#define MAX_LINE 1024
+#define MAX_LENGTH 200
 
 void *REALLOC(void *p, int t, char *file, int line, const char *function)
 {
@@ -97,7 +99,7 @@ struct node *insert_at_b(struct node *head, char *p, int u)
     struct node *temp = (struct node *)malloc(sizeof(struct node));
     temp->functid = (char *)malloc(MAX_LENGTH * (sizeof(char)));
     int ll = strlen(p);
-    if (ll > MAX_LENGTH)
+    if (ll >= MAX_LENGTH)
     {
         temp->functid = realloc(temp->functid, MAX_LENGTH + ll);
     }
@@ -108,9 +110,9 @@ struct node *insert_at_b(struct node *head, char *p, int u)
     }
     temp->next = NULL;
     head = temp;
-
     return head;
 }
+
 struct node *insert_at_e(struct node *head, char *p, int u)
 {
     //printf("inserting at end\n");
@@ -118,7 +120,7 @@ struct node *insert_at_e(struct node *head, char *p, int u)
     struct node *temp2 = (struct node *)malloc(sizeof(struct node));
     temp2->functid = (char *)malloc(MAX_LENGTH * (sizeof(char)));
     int ll = strlen(p);
-    if (ll > MAX_LENGTH)
+    if (ll >= MAX_LENGTH)
     {
         temp2->functid = realloc(temp2->functid, MAX_LENGTH + ll);
     }
@@ -159,12 +161,11 @@ void PrintNodes(struct node *head)
 }
 
 int main(int argc, char *argv[])
-
 {
-
     FILE *ptr;
     ptr = fopen(argv[1], "r");
     FILE *nptr;
+    // Clear the contents of file.
     nptr = fopen("memtrace.out", "w");
     fclose(nptr);
     int fDesc = open("memtrace.out", O_WRONLY | O_APPEND);
@@ -173,7 +174,6 @@ int main(int argc, char *argv[])
     int a = fork();
     if (a > 0)
     {
-
         //Part 1
         //char* array===string
         //This will initialize 1024 input strings that the user can take
@@ -182,12 +182,14 @@ int main(int argc, char *argv[])
         for (i = 0; i < MAX_LINE; i++)
         {
             array[i] = (char *)malloc(MAX_LENGTH * (sizeof(char)));
+            assert(array[i] && "malloc of subarray failed");
         }
         char *line_buff = NULL;
         size_t line_buff_size;
         int linesize;
         int index = 0;
         struct node *head = NULL;
+        int capacity = MAX_LINE;
 
         //don't know what to write in dup2
 
@@ -195,29 +197,43 @@ int main(int argc, char *argv[])
         {
             printf("%s", line_buff);
             int l = strlen(line_buff);
+            // Remove the ending newline from getline.
+            if (line_buff[l-1] == '\n')
+                line_buff[l-1] = '\0';
             PUSH_TRACE(line_buff);
-            if (index > MAX_LINE)
+            if (index >= capacity)
             {
                 //REALLOCATE MEMORY SPACE
-                array = realloc(array, index + 1);
-                array[index] = (char *)malloc(MAX_LENGTH * sizeof(char));
+                capacity = 1+index;
+                char **new_array = (char**)realloc(array, capacity);
+                if (new_array) {
+                    array = new_array;
+                } else {
+                    printf("\nrealloc failed\n");
+                }
+                printf("reallocing: %d, %p\n", index, array);
+                for (int c = index; c < capacity; c++) {
+                    array[c] = (char *)malloc(MAX_LENGTH * sizeof(char));
+                    assert(array[c]);
+                }
             }
-            else if (l > MAX_LENGTH)
+            if (l >= MAX_LENGTH)
             {
                 //REALLOCATE MEMORY SPACE
-                array[index] = realloc(array[index], MAX_LENGTH + l);
+                array[index] = (char*)realloc(array[index], 2*l);
+                assert(array[index] && "realloc failed");
                 strcpy(array[index], line_buff);
             }
             else
             {
                 strcpy(array[index], line_buff);
             }
-            
+
             if (head == NULL)
             {
                 head = insert_at_b(head, line_buff, index);
             }
-            else if (head != NULL)
+            else //if (head != NULL)
             {
                 insert_at_e(head, line_buff, index);
             }
@@ -225,23 +241,23 @@ int main(int argc, char *argv[])
             index = index + 1;
         }
         free(line_buff);
+
         for (i = 0; i < index; i++)
         {
-            printf("array[");
+            printf("\narray[");
             printf("%d", i);
             printf("]=");
             printf("%s", array[i]);
         }
 
         //free-ing the array
-        for (i = 0; i < MAX_LINE; i++)
+        for (i = 0; i < capacity; i++)
         {
             free(array[i]);
         }
         free(array);
         deletelist(head);
-
-        for (i = 0; i < 6; i++)
+        for (i = 0; i < index; i++)
         {
             POP_TRACE();
         }
