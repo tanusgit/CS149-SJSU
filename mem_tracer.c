@@ -7,13 +7,13 @@
 
 #define MAX_LINE 1024
 #define MAX_LENGTH 200
-
+char* PRINT_TRACE();
 void *REALLOC(void *p, int t, char *file, int line, const char *function)
 {
     printf("File %s, line %d, function %s reallocated the memory at address %p to a new size %d\n", file, line, function, p, t);
     p = realloc(p, t);
 
-    //printf("FUNCTION STACK TRACE: %s\n", PRINT_TRACE());
+    printf("FUNCTION STACK TRACE: %s\n", PRINT_TRACE());
     return p;
 }
 void *MALLOC(int t, char *file, int line, const char *function)
@@ -21,14 +21,14 @@ void *MALLOC(int t, char *file, int line, const char *function)
     void *p;
     p = malloc(t);
     printf("File %s, line %d, function %s allocated new memory segment at address %p to size %d\n", file, line, function, p, t);
-    //printf("FUNCTION STACK TRACE: %s\n", PRINT_TRACE());
+    printf("FUNCTION STACK TRACE: %s\n", PRINT_TRACE());
     return p;
 }
 void FREE(void *p, char *file, int line, const char *function)
 {
     printf("File %s, line %d, function %s deallocated the memory segment at address %p\n", file, line, function, p);
     free(p);
-    //printf("FUNCTION STACK TRACE: %s\n", PRINT_TRACE());
+    printf("FUNCTION STACK TRACE: %s\n", PRINT_TRACE());
 }
 struct TRACE_NODE_STRUCT
 {
@@ -83,6 +83,40 @@ void POP_TRACE() // remove the op of the stack
     TRACE_TOP = tnode->next;
     free(tnode);
 } /*end POP_TRACE*/
+
+/* ---------------------------------------------- */
+/* function PRINT_TRACE prints out the sequence of function calls that are on the stack at this instance */
+/* For example, it returns a string that looks like: funcA:funcB:funcC.  */
+char* PRINT_TRACE()
+{
+  int depth = 50; //A max of 50 levels in the stack will be combined in a string for printing out.
+  int i, length, j;
+  TRACE_NODE* tnode;
+  static char buf[100];
+
+  if (TRACE_TOP==NULL) {     // stack not initialized yet, so we are
+    strcpy(buf,"global");   // still in the `global' area
+    return buf;
+  }
+
+  /* peek at the depth top entries on the stack, but do not
+     go over 100 chars and do not go over the bottom of the
+     stack */
+
+  sprintf(buf,"%s",TRACE_TOP->functionid);
+  length = strlen(buf);                  // length of the string so far
+  for(i=1, tnode=TRACE_TOP->next;
+                        tnode!=NULL && i < depth;
+                                  i++,tnode=tnode->next) {
+    j = strlen(tnode->functionid);             // length of what we want to add
+    if (length+j+1 < 100) {              // total length is ok
+      sprintf(buf+length,":%s",tnode->functionid);
+      length += j+1;
+    }else                                // it would be too long
+      break;
+  }
+  return buf;
+}
 
 #define realloc(a, b) REALLOC(a, b, __FILE__, __LINE__, __FUNCTION__)
 #define malloc(a) MALLOC(a, __FILE__, __LINE__, __FUNCTION__)
