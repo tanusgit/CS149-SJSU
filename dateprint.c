@@ -5,8 +5,6 @@
 // Print current date and time in C
 int main(void)
 {
-	// variables to store date and time components
-	int hours, minutes, seconds, day, month, year;
 
 	// time_t is arithmetic time type
 	time_t now;
