@@ -95,9 +95,10 @@ int main(int argc, char *argv[])
 	ptr = fopen(argv[1], "r");
 	int index;
 	index = 1;
-	clock_t start_time, end_time;
-	double duration;
-	int temp_time;
+	//clock_t start_time, end_time;
+	clock_t end_time;
+	double duration = 0.0;
+	//int temp_time;
 	struct timeval start, end, start_new, end_new;
 	CommandNode *head = NULL;
 	int linesize;
@@ -108,7 +109,7 @@ int main(int argc, char *argv[])
 	CreateCommandNode(head, head_cmd, index, NULL);
 	CommandNode *tail = head;
 	// Get the commands and construct the list.
-	while (linesize = getline(&line_buff, &line_buff_size, ptr) >= 0)
+	while ((linesize = getline(&line_buff, &line_buff_size, ptr)) >= 0)
 	{
 		char node_cmd[20][20];
 		strcpy(node_cmd[0], line_buff);
@@ -124,7 +125,7 @@ int main(int argc, char *argv[])
 	CommandNode *tu = head;
 	head = tp->nextCommandPtr;
 	free(tu);
-	int count = 0;
+	//int count = 0;
 	CommandNode *tt = NULL;
 	tt = head;
 	pid_t process_id;
@@ -176,7 +177,7 @@ int main(int argc, char *argv[])
 			gettimeofday(&end, NULL);
 			long seconds = (end.tv_sec - start.tv_sec);
 			long micros = ((seconds * 1000000) + end.tv_usec) - (start.tv_usec);
-			double duration = (double)(end_time - start_time) / CLOCKS_PER_SEC;
+			//double duration = (double)(end_time - start_time) / CLOCKS_PER_SEC;
 
 		hell:
 			if (micros > 2000000)
