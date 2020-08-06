@@ -227,7 +227,7 @@ int main(int argc, char *argv[])
 
         //don't know what to write in dup2
 
-        while (linesize = (getline(&line_buff, &line_buff_size, ptr)) >= 0)
+        while ((linesize = (getline(&line_buff, &line_buff_size, ptr))) >= 0)
         {
             printf("%s", line_buff);
             int l = strlen(line_buff);

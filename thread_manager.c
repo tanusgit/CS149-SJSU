@@ -1,10 +1,13 @@
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include <pthread.h>
 #include <stdbool.h>
 #include <time.h>
+#include <stdint.h>
+#define _GNU_SOURCE
+#include <unistd.h>
+#include <sys/types.h>
 
 int c = 0;
 int logi = 0;
@@ -32,7 +35,28 @@ struct node *insert_at_b(struct node *head, char k[100])
     }
     return head;
 }
+
+void deletelist(struct node *head)
+{
+    struct node *temp = head;
+    struct node *temp2 = head;
+    while (temp2 != NULL)
+    {
+        free(temp2->st);
+        temp2 = temp2->next;
+        //free(temp2->index);
+    }
+    while (head != NULL)
+    {
+        head = head->next;
+        free(temp);
+        temp = head;
+    }
+}
+
 struct node *head = NULL;
+struct node *nhead = NULL;
+
 // read in stdin and store into the head of linked list.
 //thread mutex lock for access to the log index.
 // sample output: "Logindex 1, thread 2, PID 5435, DATE TIME: Head of the linked list contains line foo."
@@ -66,18 +90,23 @@ int main()
 {
     int i = 1;
     printf("create first thread\n");
-    pthread_create(&tid1, NULL, thread_runner, (void *)i);
+    //(void *) (intptr_t) i)  // (void *)i
+    pthread_create(&tid1, NULL, thread_runner,(void *) (intptr_t) i);
 
     printf("create second thread\n");
-    pthread_create(&tid2, NULL, thread_runner, (void *)(i + 1));
+    pthread_create(&tid2, NULL, thread_runner, (void *)(intptr_t)(i + 1));
 
     printf("wait for first thread to exit\n");
+    pthread_join(tid2, NULL);
     pthread_join(tid1, NULL);
     printf("first thread exited\n");
 
     printf("wait for second thread to exit\n");
-    pthread_join(tid2, NULL);
+
     printf("second thread exited\n");
+
+    deletelist(nhead);
+    free(p);
 
     exit(0);
 
@@ -88,33 +117,31 @@ int main()
 **********************************************************************/
 void *thread_runner(void *x)
 {
+
     pthread_t me;
     char input[100];
     char *result;
     me = pthread_self();
-    printf("This is thread %ld (p=%p)\n", me, p);
+    //printf("This is thread %ld (p=%p)\n",me,p);
 
-    pthread_mutex_lock(&tlock2); // critical section starts
+    pthread_mutex_lock(&tlock2);
+    // critical section starts
+
     if (p == NULL)
     {
         p = (THREADDATA *)malloc(sizeof(THREADDATA));
         p->creator = me;
     }
+    //printf("Memory allocation to thread data successfull\n");
     pthread_mutex_unlock(&tlock2); // critical section ends
-    FILE *ptr;
-    ptr = fopen("/home/td/Desktop/CS149-SJSU/cmdfile.txt", "r");
-    // CommandNode *command
+    pthread_mutex_lock(&tlock2);
     if (p != NULL && p->creator == me)
-    {   // this is thread 1 right here
+    { // this is thread 1 right here
         // this code block here should read user input and store it in variable result.
-      // while ((result = fgets(input, 100, stdin)) != NULL)
-       while (scanf(stdin, "%s", input) != EOF)
+        //printf("enter the string\n");
+        while ((result = fgets(input, 100, stdin)) != NULL)
         {
-
-            if (*result == '\n')
-            {
-                break;
-            }
+            //printf("reading is being done by:%d",x);
 
             strcpy(temp[c], result);
             if (head == NULL)
@@ -129,46 +156,49 @@ void *thread_runner(void *x)
 
             //printf("%s",result);
         }
+
         printf("This is thread %ld and I created the THREADDATA %p\n", me, p);
+        pthread_mutex_unlock(&tlock2);
     }
+
     else
     {
+
         // before printing any log messages, mutex_lock(locklogindex) so it does not mess up the counting.
         // before updating the head from thread 1 use mutex_lock(lockhead) and then mutex_unlock(lockhead).
         // something like while (!is_read_complete) { sleep(2);
         // check if head is different from last time, if yes then print the head.
         // print out if different from head?
         pthread_mutex_lock(&tlock1);
-        int k;
+
         struct node *tt = head;
+        nhead = head;
+        //printf("here hehe");
         while (tt != NULL)
         {
+            /*
+       "Logindex 1, thread 2, PID 5435, 21/04/2020 09:23:25 pm: Head of
+linked list contains line foo".
+       */
             logi = logi + 1;
-            printf("Logindex is :%d", logi);
+            printf("Logindex %d,", logi);
             printf(" ");
-            printf("Thread is: %d", x);
+            printf("Thread %p,", x);
             printf(" ");
+            //added to get rid of warnings
+            pid_t gettid(void);
             pid_t tid = gettid();
-            printf("PID is: %d", tid);
+            printf("PID is %d,", tid);
             printf(" ");
             print_current_time();
-            printf("The top of the linked list contains:%s", tt->st);
+            printf(" Head of linked list contains line: %s", tt->st);
 
             tt = tt->next;
         }
-        /*
-	for(k=0;k<c;k++)
-	{
-		logi=logi+1;
-		printf("%d\n",logi);
-		printf("%s",temp[k]);
-		print_current_time();
-		printf("This is thread %ld and I can access the THREADDATA %p\n",me,p);
-	}
-	*/
+
         pthread_mutex_unlock(&tlock1);
     }
-    fclose(ptr);
+    //fclose(ptr);
     // use mutex to make this a start of a critical section
     pthread_mutex_lock(&tlock1);
     if (p != NULL && p->creator == me)
@@ -208,7 +238,7 @@ void print_current_time(void)
 
     printf("Date: %02d/%02d/%d ", month, day, year);
     if (hours < 12)
-        printf("Time: %02d:%02d:%02d am\n", hours, minutes, seconds);
+        printf("Time: %02d:%02d:%02d am: ", hours, minutes, seconds);
     else
-        printf("Time: %02d:%02d:%02d pm\n", hours - 12, minutes, seconds);
+        printf("Time: %02d:%02d:%02d pm: ", hours - 12, minutes, seconds);
 }
