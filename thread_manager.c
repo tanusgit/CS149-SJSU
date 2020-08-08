@@ -183,7 +183,7 @@ linked list contains line foo".
             logi = logi + 1;
             printf("Logindex %d,", logi);
             printf(" ");
-            printf("Thread %p,", x);
+            printf("Thread %ld,", (uintptr_t)x);
             printf(" ");
             //added to get rid of warnings
             pid_t gettid(void);
