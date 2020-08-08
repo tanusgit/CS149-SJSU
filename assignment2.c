@@ -17,6 +17,11 @@ int main(int argc, char *argv[])
     int add_size = 100;
     //c1 pointing to (char*)malloc(add_size)
     char *c1 = (char*)malloc(add_size);
+    c1[0] = 'a';
+    c1[1] = 'b';
+    c1[2] = '\0';
+    // Reusing the memory allocated for 'ab' printing.
+    printf("c1 before=%s\n", c1);
     size_t size = add_size;
     int line;
     double sum = 0.0;
@@ -32,7 +37,7 @@ int main(int argc, char *argv[])
             if( c1[line-1] == '\n' )
                 c1[line-1] = 0;
             double d = atof(c1);
-            printf("line = %d, size = %u,  %s, converted value = %f", line, size, c1, d);
+            printf("line = %d, size = %lu,  %s, converted value = %f", line, size, c1, d);
             sum = sum +d;
             count++;
         }
