@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <string.h>
-
+void missing(int a[], int len);
 int main()
 {
 
@@ -23,4 +23,18 @@ int main()
     }
     printf("missing element array sum = %d\n", sum2);
     printf("missing element in the array = %d\n", (sum - sum2));
+    missing(a, 6);
+    
 }
+
+void missing(int a[], int len){
+
+    for (int i = 0; i < len - 1; i++)
+    {
+        if (a[i + 1] != a[i] + 1)
+        {
+            printf("%d" , a[i ]+ 1);
+        }
+    }
+    printf("%d", a[len-1]+1);
+} 
